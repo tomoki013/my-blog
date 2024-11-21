@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main_bg_color: #f7f5eb; /*メインの背景カラー*/
+  --color_one: #004d40; /*主に使うカラー1*/
+  --color_two: #e8f5e9; /*主に使うカラー2*/
+  --color_three: #2e7d32; /*主に使うカラー3*/
+  --text_color: #333; /*ブログテキストのカラー*/
+  --blog_hover_color: rgb(220, 220, 220); /*ブログリストにホバー時のカラー*/
+  --indicator_color: #5ac9be; /*インジケーターの色*/
+  --header_height: 100px; /*ヘッダーの高さ*/
+  --mini_header_height: 70px; /*768px以下の時のヘッダーの高さ*/
+  --vertical_img_width: 500px; /*縦の写真の時の横幅*/
+  --beside_img_width: 350px; /*横の写真の時の横幅*/
+  --font_family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /*通常使用するフォント*/
+  --hambarger_width: 3.75rem; /*ハンバーガーアイコンの横幅*/
+  --hambarger_height: calc(var(--header_height) / 2.5); /*ハンバーガーアイコンの高さ*/
+  --hambarger_top_position: calc(var(--header_height) / 2 - 1.56rem); /*ハンバーガーアイコンの縦の位置*/
+  --hambarger_right_position: 1.5rem; /*ハンバーガーアイコンの横の位置*/
+  --mini_hambarger_width: 2.5rem; /*768px以下の時のハンバーガーアイコンの横幅*/
+  --mini_hambarger_height: calc(var(--mini_header_height) / 2.5); /*768px以下の時のハンバーガーアイコンの高さ*/
+  --mini_hambarger_top_position: calc(var(--mini_header_height) / 2  - 1.5rem); /*768px以下の時のハンバーガーアイコンの縦の位置*/
+  --mini_hambarger_right_position: 1.25rem; /*768px以下の時のハンバーガーアイコン横の位置*/
+  --header_z_index: 10; /*ヘッダーのz-index*/
+}
+
+* {
+  box-sizing: border-box;
+  word-break: auto-phrase;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--main_bg_color);
+  font-family: var(--font_family);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}

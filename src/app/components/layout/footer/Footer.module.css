@@ -1,0 +1,75 @@
+/*フッターのスタイル*/
+.footer {
+    background-color: var(--color_two);
+    color: var(--color_one);
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.footer_nav {
+    margin-top: 1.8rem;
+}
+
+.footer_nav_list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.footer_nav_item {
+    margin-right: 1.25rem;
+}
+
+.footer_nav a {
+    text-decoration: none;
+    color: var(--color_one);
+}
+.footer_nav a:hover {
+    color: #2e7d32;
+    text-decoration: underline;
+}
+
+/*ページトップボタンのスタイル*/
+.pagetop {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    text-decoration: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--color_one);
+    border-radius: 100%;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    z-index: calc(var(--header_z_index) - 2);
+}
+
+.pagetop p {
+    transform: rotateZ(-90deg);
+}
+
+@media (max-width: 768px) {
+    .footer_nav_list {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer_nav_item {
+        margin-top: 0.3rem;
+    }
+
+    .footer p, .footer_nav_item, footer #thispage {
+        font-size: 1.25rem;
+    }
+}

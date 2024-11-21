@@ -1,0 +1,227 @@
+.opacity_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--color_one);
+    height: var(--header_height);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: var(--header_z_index);
+}
+
+.time_wrapper {
+    position: absolute;
+    top: var(--hambarger_top_position);
+    left: 1.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+.title {
+    color: #fff;
+    font-size: 2rem;
+}
+
+/*ハンバーガーメニュー*/
+.hambarger {
+    position: absolute;
+    cursor: pointer;
+    width: var(--hambarger_width);
+    height: var(--hambarger_height);
+    top: var(--hambarger_top_position);
+    right: var(--hambarger_right_position);
+    transition: all .5s ease-in-out;
+}
+
+/*ハンバーガーメニューのラインのスタイル*/
+.line {
+    background-color: #fff;
+    border-radius: 2px;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    transition: all .5s ease;
+}
+
+.line:nth-of-type(1) {
+    top: 0;
+}
+.line:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.line:nth-of-type(3) {
+    bottom: 0;
+}
+
+.hambarger.active > .line:nth-of-type(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+.hambarger.active > .line:nth-of-type(2) {
+    display: none;
+}
+.hambarger.active > .line:nth-of-type(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/*メニューテキスト部分のスタイル*/
+.menu_text {
+    display: block;
+    text-align: center;
+    color: #fff;
+    margin-top: var(--hambarger_height);
+    font-size: 1.5rem;
+    transition: all .7s ease-in-out;
+}
+.hambarger.active .menu_text {
+    transform: rotateY(360deg);
+}
+
+/*メインメニューのスタイル*/
+.navmenu {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--color_one);
+    text-align: center;
+    color: #fff;
+    z-index: calc(var(--header_z_index) - 1);
+}
+.navmenu.active {
+    position: fixed;
+    animation: fadein .5s forwards;
+}
+.navmenu.inactive {
+    position: fixed;
+    animation: fadeout .5s forwards;
+}
+
+.navmenu.active, .navmenu.inactive {
+    top: var(--header_height);
+    right: 0;
+}
+
+/*メインメニューのフェードイン、フェードアウト時のアニメーション*/
+@keyframes fadein {
+    0% {
+        right: -10%;
+        opacity: 0;
+    }100% {
+        right: 0%;
+        opacity: 1;
+    }
+}
+@keyframes fadeout {
+    0% {
+        right: 0;
+        opacity: 1;
+    }
+    100% {
+        right: -10%;
+        opacity: 0;
+    }
+}
+
+.menu_list {
+    width: 70%;
+    margin: auto;
+}
+
+.menu_title {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+}
+
+.menu_item {
+    display: flex;
+    height: 3.2rem;
+    margin-top: 0.4rem;
+    border-bottom: 1px solid #fff;
+}
+
+.menu_item a {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+.menu_item a:hover {
+    opacity: .7;
+    background-color: #00796b;
+}
+
+.menu_item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    letter-spacing: 0.2rem;
+}
+
+@media (max-width:768px) {
+    .opacity_header {
+        height: var(--mini_header_height);
+    }
+
+    .time_wrapper {
+        display: none;
+    }
+
+    .hambarger {
+        width: var(--mini_hambarger-width);
+        height: var(--mini_hambarger_height);
+        top: var(--mini_hambarger_top_position);
+        right: var(--mini_hambarger_right_position);
+    }
+
+    .line {
+        height: 3px;
+    }
+
+    .menu_text {
+        margin-top: var(--mini_hambarger_height);
+        font-size: 1.5rem;
+    }
+
+    .navmenu {
+        width: 100vw;
+        max-width: 768px;
+    }
+    @keyframes fadein {
+        0% {
+            top: -10%;
+            opacity: 0;
+        }
+        100% {
+            top: var(--mini_header_height);
+            opacity: 1;
+        }
+    }
+    @keyframes fadeout {
+        0% {
+            top: var(--mini_header_height);
+            opacity: 1;
+        }
+        100% {
+            top: -10%;
+            opacity: 0;
+        }
+    }
+
+    .menu_title {
+        font-size: 2.0rem;
+    }
+
+    .menu_item a {
+        font-size: 1.5rem;
+    }
+}
+  
