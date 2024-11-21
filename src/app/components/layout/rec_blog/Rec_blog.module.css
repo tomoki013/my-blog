@@ -1,0 +1,41 @@
+.right_side {
+    width: 30%;
+    height: 100vh;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+    .right_side {
+        position: fixed;
+        top: var(--header_height);
+        right: 0;
+    }
+}
+
+.new_blog_text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.rec_text {
+    text-align: center;
+    color: var(--color_three);
+    font-size: 1.2em;
+}
+
+.new_blog_list, .rec_blog_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*768px以下のスタイルの設定*/
+@media (max-width: 768px) {
+    .right_side {
+        width: 100%;
+        height: auto;
+    }
+}
