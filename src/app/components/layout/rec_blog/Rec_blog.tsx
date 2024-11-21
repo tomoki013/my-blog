@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useCallback } from "react";
 import styles from "./Rec_blog.module.css";
 import Link from "next/link";
 
@@ -25,3 +24,5 @@ const Rec_blog: React.FC = () => {
         </aside>
     )
 }
+
+export default Rec_blog;

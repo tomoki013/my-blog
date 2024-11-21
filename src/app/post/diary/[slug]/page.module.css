@@ -1,3 +1,167 @@
+/*メイン部分のスタイル*/
+.main {
+    display: flex;
+}
+
+.maincontent {
+    width: 70%;
+    margin-top: calc(var(--header_height) + 20px);
+}
+
+/*ガイダンス*/
+.guidance {
+    position: relative;
+    height: 1.5rem;
+}
+
+.guidance a {
+    color: var(--color_one);
+    text-decoration: underline;
+}
+.guidance a:hover {
+    color: var(--color_three);
+}
+
+.prev_blog {
+    position: absolute;
+    left: 5%;
+}
+
+.blog_top {
+    position: absolute;
+    right: 46%;
+}
+
+.next_blog {
+    position: absolute;
+    right: 5%;
+}
+
+/* リンクがない際のスタイル */
+.disabled_link {
+    color: #ccc;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+/*ブログのスタイル*/
 .article {
-    margin-top: 100px;
+    background-color: #fff;
+    color: var(--text_color);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.blog_title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.place, .blog_date {
+    margin: 0 auto;
+    padding: 0 auto;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.article img {
+    max-width: 80%;
+}
+
+.blog_image {
+    text-align: center;
+}
+
+.blog_doc {
+    margin: 0 2.8rem;
+}
+
+.sub_title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.blog_doc hr {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.inside_img {
+    display: flex;
+    align-items: end;
+}
+
+.inside_img img {
+    margin-right: 30px;
+    overflow: hidden;
+}
+
+/*目次のスタイル*/
+.index {
+    margin: 20px auto;
+    padding-bottom: 20px;
+    background-color: var(--blog_hover_color);
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 10px;
+    width: 60%;
+}
+
+.index_title {
+    text-decoration: underline;
+}
+
+.index_list {
+    margin: 0 auto;
+    padding: 0;
+    list-style-position: inside;
+    width: fit-content;
+}
+
+.index_list li {
+    text-align: left;
+    margin-top: 5px;
+}
+
+.index_list a {
+    color: #333;
+}
+.index_list a:hover {
+    opacity: .7;
+}
+
+/*フッター部分のスタイル*/
+.max_footer {
+    display: none;
+}
+
+/*768以下のスタイルの設定*/
+@media (max-width: 768px) {
+    .main {
+        display: block;
+        font-size: 1.25rem;
+    }
+
+    .maincontent {
+        width: 100%;
+        margin-top: calc(var(--mini_header_height) + 20px);
+    }
+
+    .blog_top {
+        display: none;
+    }
+
+    .min_footer {
+        display: none;
+    }
+
+    .max_footer {
+        display: block;
+    }
 }
