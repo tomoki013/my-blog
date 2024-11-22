@@ -8,6 +8,23 @@
     margin-top: calc(var(--header_height) + 20px);
 }
 
+.right_side_margin {
+    width: 30%;
+}
+
+.right_side {
+    width: 30%;
+    height: 100vh;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+    .right_side {
+        position: fixed;
+        top: var(--header_height);
+        right: 0;
+    }
+}
+
 /*ガイダンス*/
 .guidance {
     position: relative;
@@ -134,11 +151,6 @@
 }
 .index_list a:hover {
     opacity: .7;
-}
-
-/*フッター部分のスタイル*/
-.max_footer {
-    display: none;
 }
 
 /*768以下のスタイルの設定*/

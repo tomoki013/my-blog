@@ -43,6 +43,19 @@ body {
   font-family: var(--font_family);
 }
 
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 12px;

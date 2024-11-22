@@ -1,17 +1,16 @@
 import Link from "next/link";
 import styles from "./page.module.css";
-{/* import Rec_blog from "@/app/components/layout/rec_blog/Rec_blog"; */}
 import { getAllPosts, getPostBySlug, getAdjacentPosts } from "@/lib/posts";
+import Rec_blog from "@/app/components/layout/rec_blog/Rec_blog";
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts(); // 非同期対応
   return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
-  const { prevPost, nextPost } = getAdjacentPosts(params.slug);
-
+  const post = await getPostBySlug(params.slug); // 非同期対応
+  const { prevPost, nextPost } = await getAdjacentPosts(params.slug); // 非同期対応
   return (
     <main className={styles.main}>
 
@@ -45,14 +44,13 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 
       {/* ブログ */}
       <article className={styles.article}>
-        <h1 className={styles.blog_title}>{post.title}</h1><hr/>
+        <h2 className={styles.blog_title}>{post.title}</h2><hr/>
         <p className={styles.place}>{post.place}</p>
         <p className={styles.blog_date}>{post.date}</p>
         <div className={styles.blog_image}></div>
 
         {/* 本文 */}
         <div className={styles.blog_doc}>
-          <h2 className={styles.sub_title}></h2><hr/>
           <section className={styles.blog_text}><div dangerouslySetInnerHTML={{ __html: post.content }} /></section>
         </div>
 
@@ -82,14 +80,13 @@ export default async function BlogPage({ params }: { params: { slug: string } })
         )}
       </nav>
 
-    </div>
+    </div><hr />
 
     {/* 右サイドのスタイルを整えるためのスペース */}
     <div className={styles.right_side_margin}></div>
 
-    {/* 右サイドのコンテンツ
+    {/* 右サイドのコンテンツ*/}
     <Rec_blog/>
-    */}
 
   </main>
   );
