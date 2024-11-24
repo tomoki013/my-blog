@@ -3,12 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css'; // CSS モジュールを使う例
-import { usePathname } from 'next/navigation';
 
-const Footer: React.FC = () => {
+const SmallScreenFooter: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [pagetopOpacity, setPagetopOpacity] = useState(0);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -16,14 +15,14 @@ const Footer: React.FC = () => {
       const newPagetopOpacity = Math.min(0.7, scrollY / 200);
       setPagetopOpacity(newPagetopOpacity);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
   const handlePagetopHover = (hover: boolean) => {
     if (hover) {
       setPagetopOpacity(0.5);
@@ -31,16 +30,9 @@ const Footer: React.FC = () => {
       setPagetopOpacity(Math.min(0.7, scrollPosition / 200));
     }
   };
-  
-  const pathname = usePathname();
-
-  if (pathname.includes('/diary')) {
-    return null; // '/diary'を含むページではFooterを表示しない
-  }
-  
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${styles.small_screen_footer}`}>
       <p>&copy; 2024 Tomokichi Travel</p>
 
       {/* フッターメニュー */}
@@ -90,4 +82,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default SmallScreenFooter;

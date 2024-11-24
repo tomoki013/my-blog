@@ -1,0 +1,40 @@
+/*ガイダンス*/
+.guidance {
+    position: relative;
+    height: 1.5rem;
+}
+
+.guidance a {
+    color: var(--color_one);
+    text-decoration: underline;
+}
+.guidance a:hover {
+    color: var(--color_three);
+}
+
+.prev_blog {
+    position: absolute;
+    left: 5%;
+}
+
+.blog_top {
+    position: absolute;
+    right: 46%;
+}
+
+.next_blog {
+    position: absolute;
+    right: 5%;
+}
+
+/* リンクがない際のスタイル */
+.disabled_link {
+    color: #ccc;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .blog_top {
+        display: none;
+    }
+}
