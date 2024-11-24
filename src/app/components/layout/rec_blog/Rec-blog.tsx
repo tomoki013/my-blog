@@ -1,4 +1,4 @@
-import styles from "./Rec_blog.module.css";
+import styles from "./Rec-blog.module.css";
 
 const Rec_blog: React.FC = () => {
     return (

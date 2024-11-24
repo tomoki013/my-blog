@@ -1,0 +1,57 @@
+/*ブログのスタイル*/
+.article {
+    background-color: #fff;
+    color: var(--text_color);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.blog_title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.place, .blog_date {
+    margin: 0 auto;
+    padding: 0 auto;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.article img {
+    max-width: 80%;
+}
+
+.blog_image {
+    text-align: center;
+}
+
+.blog_doc {
+    margin: 0 2.8rem;
+}
+
+.sub_title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.blog_doc hr {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+.inside_img {
+    display: flex;
+    align-items: end;
+}
+
+.inside_img img {
+    margin-right: 30px;
+    overflow: hidden;
+}

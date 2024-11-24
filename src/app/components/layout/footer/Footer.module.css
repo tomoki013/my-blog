@@ -7,6 +7,25 @@
     padding: 1rem;
 }
 
+@media (min-width: 768px) {
+    .small_screen_footer {
+        display: none;
+    }
+
+    .desktop_screen_footer {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .small_screen_footer {
+        display: block;
+    }
+
+    .desktop_screen_footer{
+        display: none;
+    }
+}
+
 .footer p {
     text-align: center;
 }
