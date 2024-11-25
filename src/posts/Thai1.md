@@ -2,6 +2,8 @@
 title: "初海外！タイに行ってきました！"
 place: "タイ-バンコク"
 date: "2024-3-1"
+image: "/images/diary/Thai/hotel1.jpg"
+alt: ""
 excerpt: "初めての海外旅行でタイに行ってきました"
 ---
 

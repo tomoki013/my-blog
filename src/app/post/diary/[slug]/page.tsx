@@ -30,6 +30,8 @@ export default async function BlogPage({ params }: { params: { slug: string } })
             title={post.title}
             date={post.date}
             place={post.place}
+            image={post.image}
+            alt={post.alt}
             content={post.content}
           />
 
