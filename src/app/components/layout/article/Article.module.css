@@ -3,10 +3,7 @@
     background-color: #fff;
     color: var(--text_color);
     border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 20px;
     padding-top: 10px;
     padding-bottom: 40px;
 }
@@ -24,16 +21,22 @@
     text-align: right;
 }
 
-.article img {
-    max-width: 80%;
+.blog_image {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
-.blog_image {
-    text-align: center;
+.blog_img {
+    max-width: 300px;
+    max-height: 500px;
 }
 
 .blog_doc {
     margin: 0 2.8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .sub_title {
@@ -46,12 +49,7 @@
     padding: 0 auto;
 }
 
-.inside_img {
-    display: flex;
-    align-items: end;
-}
-
-.inside_img img {
-    margin-right: 30px;
-    overflow: hidden;
+.blog_doc img {
+    max-width: 300px;
+    margin: 10px;
 }
