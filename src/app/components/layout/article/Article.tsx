@@ -1,4 +1,5 @@
 import styles from "./Article.module.css";
+import Image from "next/image";
 
 type BlogArticleProps = {
   title: string;
@@ -16,13 +17,21 @@ export default function BlogArticle({ title, date, place, image, alt, content }:
       <hr />
       <p className={styles.place}>{place}</p>
       <p className={styles.blog_date}>{date}</p>
-      <div className={styles.blog_image}><img src={image} alt={alt} /></div>
+      <div className={styles.blog_image}>
+        <Image
+          src={image}
+          alt={alt}
+          width={1}
+          height={1}
+          layout="responsive"
+          className={styles.blog_img}
+        />
+      </div>
 
       <div className={styles.blog_doc}>
-        <section className={styles.blog_text}>
           <div dangerouslySetInnerHTML={{ __html: content }} />
-        </section>
       </div>
+      
     </article>
   );
 }
