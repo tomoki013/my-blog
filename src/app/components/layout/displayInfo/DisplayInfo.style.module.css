@@ -1,0 +1,28 @@
+.useful_info {
+    margin: 20px 2rem;
+    padding: 10px 30px 30px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.useful_info h2 {
+    text-align: center;
+}
+
+.useful_info_list {
+    list-style: none;
+    padding-right: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.useful_info_top {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: var(--color_one);
+}
+.useful_info_top:hover {
+    color: var(--color_three);
+}
