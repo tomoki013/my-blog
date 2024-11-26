@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css"; // CSSモジュールを使用
 import classNames from "classnames"; // classnamesを使用してクラスを動的に切り替える
@@ -10,6 +10,9 @@ const Header: React.FC = () => {
   const [time, setTime] = useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [headerOpacity, setHeaderOpacity] = useState<number>(1);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuIconRef = useRef<HTMLDivElement | null>(null);
 
   // 時刻を更新する関数
   const updateDateTime = useCallback(() => {
@@ -49,7 +52,37 @@ const Header: React.FC = () => {
 
   // メニューの開閉を切り替える
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen((prev) => !prev);
+    setIsMenuOpen((prev) => {
+      // スクロール無効化の切り替え
+      if (!prev) {
+        document.body.classList.add("no-scroll");
+      } else {
+        document.body.classList.remove("no-scroll");
+      }
+      return !prev;
+    });
+  }, []);
+
+  // メニュー外をクリックした際にメニューを閉じる
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        menuIconRef.current &&
+        !menuIconRef.current.contains(target)
+      ) {
+        setIsMenuOpen(false);
+        document.body.classList.remove("no-scroll"); // スクロールを元に戻す
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("no-scroll"); // コンポーネントのアンマウント時にも復元
+    };
   }, []);
 
   return (
@@ -69,6 +102,7 @@ const Header: React.FC = () => {
 
         {/* ハンバーガーメニュー */}
         <div
+          ref={menuIconRef} // メニューアイコンを参照
           className={classNames(styles.hambarger, {
             [styles.active]: isMenuOpen,
           })}
@@ -83,6 +117,7 @@ const Header: React.FC = () => {
       </div>
 
       <nav
+        ref={menuRef} // メニュー全体を参照
         className={classNames(styles.navmenu, {
           [styles.active]: isMenuOpen,
           [styles.inactive]: !isMenuOpen,
@@ -91,19 +126,19 @@ const Header: React.FC = () => {
         <h3 className={styles.menu_title}>MENU</h3>
         <ul className={styles.menu_list}>
           <li className={styles.menu_item}>
-            <Link href="/">トップページ</Link>
+            <Link onClick={toggleMenu} href="/">トップページ</Link>
           </li>
           <li className={styles.menu_item}>
-            <Link href="/domestic">国内旅行</Link>
+            <Link onClick={toggleMenu} href="/domestic">国内旅行</Link>
           </li>
           <li className={styles.menu_item}>
-            <Link href="/oversea">海外旅行</Link>
+            <Link onClick={toggleMenu} href="/oversea">海外旅行</Link>
           </li>
           <li className={styles.menu_item}>
-            <Link href="/info">観光情報</Link>
+            <Link onClick={toggleMenu} href="/info">観光情報</Link>
           </li>
           <li className={styles.menu_item}>
-            <Link href="/contact">お問い合わせ</Link>
+            <Link onClick={toggleMenu} href="/contact">お問い合わせ</Link>
           </li>
         </ul>
       </nav>

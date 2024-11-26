@@ -64,4 +64,9 @@ h3 {
   html {
     font-size: 12px;
   }
+
+  .no-scroll {
+    overflow: hidden;
+    position: fixed;
+  }
 }
