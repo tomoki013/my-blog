@@ -3,6 +3,7 @@ import { getAllPosts, getPostBySlug, getAdjacentPosts } from "@/lib/posts";
 import Rec_blog from "@/app/components/layout/rec_blog/Rec-blog";
 import Navigation from "@/app/components/layout/navigation/Navigation";
 import Article from "@/app/components/layout/article/Article";
+import Profile from "@/app/components/layout/profile/Profile";
 import SmallScreenFooter from "@/app/components/layout/footer/SmallScreenFooter";
 import DesktopScreenFooter from "@/app/components/layout/footer/DesktopScreenFooter";
 
@@ -34,6 +35,9 @@ export default async function BlogPage({ params }: { params: { slug: string } })
             alt={post.alt}
             content={post.content}
           />
+
+          {/* プロフィール */}
+          <Profile />
 
           {/* ガイダンス（再度表示） */}
           <Navigation prevPost={prevPost} nextPost={nextPost} />

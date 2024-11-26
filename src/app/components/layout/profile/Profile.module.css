@@ -1,0 +1,18 @@
+/*プロフィールのスタイル*/
+.profile {
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem;
+    margin: 20px;
+}
+
+.profile h3 {
+    text-decoration: underline;
+}
+
+.profile_img {
+    border: 2px solid var(--color_one);
+    border-radius: 50%;
+    margin: auto;
+}
