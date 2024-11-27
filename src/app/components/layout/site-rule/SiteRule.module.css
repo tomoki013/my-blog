@@ -1,0 +1,25 @@
+.wrapper {
+    background-color: #fff;
+    color: var(--text_color);
+    border-radius: 10px;
+    margin: 0 2rem;
+    padding: 10px 30px 30px 30px;
+    display: flex;
+}
+
+.privacy_policy, .terms_of_service {
+    width: 50%;
+    padding: 30px;
+    padding-top: 10px;
+}
+
+/*768px以下の時のスタイル*/
+@media (max-width: 768px) {
+    .wrapper {
+        display: block;
+    }
+    
+    .privacy_policy, .terms_of_service {
+        width: 100%;
+    }
+}
