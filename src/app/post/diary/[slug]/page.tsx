@@ -8,7 +8,7 @@ import SmallScreenFooter from "@/app/components/layout/footer/SmallScreenFooter"
 import DesktopScreenFooter from "@/app/components/layout/footer/DesktopScreenFooter";
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug);
-  const { prevPost, nextPost } = await getAdjacentPosts(params.slug);
+  const { prevPost, nextPost } = getAdjacentPosts(params.slug);
 
   return (
     <>
