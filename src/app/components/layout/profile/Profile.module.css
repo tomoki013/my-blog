@@ -1,10 +1,15 @@
 /*プロフィールのスタイル*/
 .profile {
     background-color: #fff;
-    border-radius: 10px;
     text-align: center;
     padding: 1rem;
-    margin: 20px;
+    margin-top: 20px;
+}
+@media (min-width: 768px) {
+    .profile {
+        margin: 20px;
+        border-radius: 10px;
+    }
 }
 
 .profile h3 {
