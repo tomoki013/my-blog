@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Profile() {
     return (
-        <section className={styles.profile}>
+        <section className="bg-white text-center p-4 mt-4 md:m-4 md:rounded-xl">
             <Image
                 src="/images/diary/Introduce/introduce.jpg"
                 alt="プロフィール写真"

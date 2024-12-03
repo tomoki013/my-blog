@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { getAllPosts, getPostBySlug, getAdjacentPosts } from "@/lib/posts";
+import { getAllDiaries, getDiaryBySlug, getAdjacentDiaries } from "@/lib/posts";
 import Rec_blog from "@/app/components/layout/rec_blog/Rec-blog";
 import Navigation from "@/app/components/layout/navigation/Navigation";
 import Article from "@/app/components/layout/article/Article";
@@ -8,19 +8,24 @@ import SmallScreenFooter from "@/app/components/layout/footer/SmallScreenFooter"
 import DesktopScreenFooter from "@/app/components/layout/footer/DesktopScreenFooter";
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllDiaries();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
 export const dynamic = 'force-dynamic';
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
-  const { prevPost, nextPost } = getAdjacentPosts(params.slug);
+  if (!params || !params.slug) {
+    throw new Error("params.slug が存在しません");
+  }
+
+  // slug を処理
+  const post = await getDiaryBySlug(params.slug);
+  const { prevPost, nextPost } = await getAdjacentDiaries(params.slug); // こちらも await 必須か確認
 
   return (
     <>
-      <main className={styles.main}>
+      <main className="md:flex">
 
         <div className={styles.maincontent}>
           {/* ガイダンス */}

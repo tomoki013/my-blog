@@ -6,22 +6,20 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import { FrontMatter } from './types';
-{/*import { remark } from 'remark';
-import html from 'remark-html';
-import { visit } from 'unist-util-visit'; // 名前付きエクスポート
-import { Root, Element } from 'hast';*/}
 
+const directories = {
+  diary: path.join(process.cwd(), 'src/posts/diary'),
+  info: path.join(process.cwd(), 'src/posts/info'),
+};
 
-const postsDirectory = path.join(process.cwd(), 'src/posts');
-
-export const getAllPosts = () => {
-  const fileNames = fs.readdirSync(postsDirectory);
+// 共通関数: ファイルを取得してパース
+const getAllPosts = (directory: string) => {
+  const fileNames = fs.readdirSync(directory);
   return fileNames
     .map((fileName) => {
-      const fullPath = path.join(postsDirectory, fileName);
+      const fullPath = path.join(directory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents) as GrayMatterFile<string> & { data: FrontMatter };
-
       return {
         slug: fileName.replace(/\.md$/, ''),
         ...data,
@@ -30,8 +28,9 @@ export const getAllPosts = () => {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
-export const getPostBySlug = async (slug: string) => {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+// 共通関数: スラグで特定のポストを取得
+const getPostBySlug = async (slug: string, directory: string) => {
+  const fullPath = path.join(directory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents) as GrayMatterFile<string> & { data: FrontMatter };
 
@@ -39,7 +38,6 @@ export const getPostBySlug = async (slug: string) => {
     throw new Error(`Missing required fields in slug: ${slug}`);
   }
 
-  // マークダウンをHTMLに変換
   const htmlContent = await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -53,17 +51,27 @@ export const getPostBySlug = async (slug: string) => {
   };
 };
 
-
-export const getAdjacentPosts = (slug: string) => {
-  const posts = getAllPosts();
+// 共通関数: 前後のポストを取得
+const getAdjacentPosts = (slug: string, getAll: () => { slug: string }[]) => {
+  const posts = getAll();
   const currentIndex = posts.findIndex((post) => post.slug === slug);
 
   if (currentIndex === -1) {
     throw new Error(`Post with slug: ${slug} not found`);
   }
 
-  const prevPost = posts[currentIndex - 1] || null;
-  const nextPost = posts[currentIndex + 1] || null;
-
-  return { prevPost, nextPost };
+  return {
+    prevPost: posts[currentIndex - 1] || null,
+    nextPost: posts[currentIndex + 1] || null,
+  };
 };
+
+// 日記関連関数
+export const getAllDiaries = () => getAllPosts(directories.diary);
+export const getDiaryBySlug = (slug: string) => getPostBySlug(slug, directories.diary);
+export const getAdjacentDiaries = (slug: string) => getAdjacentPosts(slug, getAllDiaries);
+
+// 情報関連関数
+export const getAllInfos = () => getAllPosts(directories.info);
+export const getInfoBySlug = (slug: string) => getPostBySlug(slug, directories.info);
+export const getAdjacentInfos = (slug: string) => getAdjacentPosts(slug, getAllInfos);

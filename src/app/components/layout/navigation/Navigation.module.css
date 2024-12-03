@@ -6,11 +6,11 @@
 }
 
 .guidance a {
-    color: var(--color_one);
+    color: var(--color-one);
     text-decoration: underline;
 }
 .guidance a:hover {
-    color: var(--color_three);
+    color: var(--color-three);
 }
 
 .prev_blog {
