@@ -1,34 +1,9 @@
 /*ブログのスタイル*/
-.article {
-    background-color: #fff;
-    color: var(--text_color);
-    padding-top: 10px;
-    padding-bottom: 40px;
-}
-@media (min-width: 768px) {
-    .article {
-        border-radius: 10px;
-        margin: 20px;
-    }
-}
-
-.blog_title {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    text-align: center;
-}
-
 .place, .blog_date {
     margin: 0 auto;
     padding: 0 auto;
     margin-right: 10px;
     text-align: right;
-}
-
-.blog_image {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
 }
 
 .blog_img {
@@ -41,11 +16,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.sub_title {
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .blog_doc hr {

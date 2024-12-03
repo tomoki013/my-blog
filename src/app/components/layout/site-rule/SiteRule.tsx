@@ -2,7 +2,7 @@ import styles from "@/app/components/layout/site-rule/SiteRule.module.css";
 
 export default function SiteRule() {
     return (
-        <div className={styles.wrapper}>
+        <div className="md:flex bg-white text-[var(--text-color)] md:rounded-xl md:my-0 mx-4">
 
             {/* プライバシーポリシー */}
             <div className={styles.privacy_policy}>

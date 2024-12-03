@@ -12,12 +12,12 @@ type BlogArticleProps = {
 
 export default function BlogArticle({ title, date, place, image, alt, content }: BlogArticleProps) {
   return (
-    <article className={styles.article}>
-      <h2 className={styles.blog_title}>{title}</h2>
+    <article className="pt-[10px] pb-[40px] bg-white text-[var(--text-color)] md:rounded-xl md:m-4">
+      <h2 className="mb-0 pb-0 text-center">{title}</h2>
       <hr />
       <p className={styles.place}>{place}</p>
       <p className={styles.blog_date}>{date}</p>
-      <div className={styles.blog_image}>
+      <div className="flex justify-center my-4">
         <Image
           src={image}
           alt={alt}

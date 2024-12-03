@@ -3,11 +3,11 @@
     width: 200px;
     height: 280px;
     margin: 20px 30px;
-    border: 1px solid var(--color_one);
+    border: 1px solid var(--color-one);
 }
 .item_1:hover {
     opacity: .7;
-    background-color: var(--blog_hover_color);
+    background-color: var(--blog-hover-color);
 }
 
 .item_1 a {
@@ -17,7 +17,7 @@
     height: 100%;
     padding: 10px;
     text-decoration: none;
-    color: var(--color_one);
+    color: var(--color-one);
 }
 
 .blog_display_img {
@@ -30,7 +30,7 @@
     margin: 0;
     margin-bottom: 5px;
     padding: 0;
-    color: var(--color_one);
+    color: var(--color-one);
 }
 
 .item_1 p {

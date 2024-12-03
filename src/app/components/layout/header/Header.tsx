@@ -98,7 +98,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* タイトル */}
-        <h1 className={styles.title}>ともきちの旅行ブログ</h1>
+        <h1 className="text-white">ともきちの旅行ブログ</h1>
 
         {/* ハンバーガーメニュー */}
         <div
