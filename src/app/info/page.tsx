@@ -1,4 +1,4 @@
-import DisplayInfo from "../components/layout/displayInfo/DisplayInfo"
+import DisplayInfo from "@/app/components/layout/displayInfo/DisplayInfo";
 
 export default function Home() {
   return (
