@@ -32,7 +32,7 @@ export default function DisplayInfo({displayCount}: DisplayInfoProps) {
                     </li>
                 ))}
             </ul>
-            <Link href="/info" className={styles.useful_info_top}>一覧へ ＞＞</Link>
+            <Link href="/info" className="block underline text-[var(--color-one)] w-fit m-auto">一覧へ ＞＞</Link>
         </div>
     )
 }

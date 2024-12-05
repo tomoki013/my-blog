@@ -93,7 +93,7 @@
 }
 .navmenu.inactive {
     position: fixed;
-    animation: fadeout .5s forwards;
+    animation: fadeout 1.5s forwards;
 }
 
 .navmenu.active, .navmenu.inactive {
@@ -117,7 +117,7 @@
         opacity: 1;
     }
     100% {
-        right: -10%;
+        right: -100%;
         opacity: 0;
     }
 }
