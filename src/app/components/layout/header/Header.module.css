@@ -85,6 +85,7 @@
     background-color: var(--color-one);
     text-align: center;
     color: #fff;
+    padding-top: 2rem;
     z-index: calc(var(--header-z-index) - 1);
 }
 .navmenu.active {

@@ -129,12 +129,6 @@ const Header: React.FC = () => {
             <Link onClick={toggleMenu} href="/">トップページ</Link>
           </li>
           <li className={styles.menu_item}>
-            <Link onClick={toggleMenu} href="/domestic">国内旅行</Link>
-          </li>
-          <li className={styles.menu_item}>
-            <Link onClick={toggleMenu} href="/oversea">海外旅行</Link>
-          </li>
-          <li className={styles.menu_item}>
             <Link onClick={toggleMenu} href="/info">観光情報</Link>
           </li>
           <li className={styles.menu_item}>

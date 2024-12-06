@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
   
   const pathname = usePathname();
 
-  if (pathname.includes('/diary')) {
-    return null; // '/diary'を含むページではFooterを表示しない
+  if (pathname.includes('/diary') || pathname.includes('/info')) {
+    return null; // '/diary' または '/info' を含むページでは Footer を表示しない
   }
   
 
@@ -49,16 +49,6 @@ const Footer: React.FC = () => {
           <li className={styles.footer_nav_item}>
             <Link href="/">
                 トップページ
-            </Link>
-          </li>
-          <li className={styles.footer_nav_item}>
-            <Link href="/domestic">
-              国内旅行
-            </Link>
-          </li>
-          <li className={styles.footer_nav_item}>
-            <Link href="/oversea">
-              海外旅行
             </Link>
           </li>
           <li className={styles.footer_nav_item}>
