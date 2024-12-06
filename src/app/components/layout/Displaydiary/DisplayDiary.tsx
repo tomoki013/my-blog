@@ -32,10 +32,6 @@ export default function BlogLink1({displayCount}: BlogLink1Props) {
                     </li>
                 ))}
             </ul>
-            <nav className="flex justify-center">
-                <Link href="/domestic" className="mx-8 text-[var(--color-one)] underline">国内旅行 ＞＞</Link>
-                <Link href="/oversea" className="mx-8 text-[var(--color-one)] underline">海外旅行 ＞＞</Link>
-            </nav>
         </div>
     );
 };

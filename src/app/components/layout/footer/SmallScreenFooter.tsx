@@ -44,16 +44,6 @@ const SmallScreenFooter: React.FC = () => {
             </Link>
           </li>
           <li className={styles.footer_nav_item}>
-            <Link href="/domestic">
-              国内旅行
-            </Link>
-          </li>
-          <li className={styles.footer_nav_item}>
-            <Link href="/oversea">
-              海外旅行
-            </Link>
-          </li>
-          <li className={styles.footer_nav_item}>
             <Link href="/info">
               観光情報
             </Link>

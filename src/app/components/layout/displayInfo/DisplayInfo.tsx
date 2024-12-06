@@ -13,7 +13,7 @@ export default function DisplayInfo({displayCount}: DisplayInfoProps) {
     const count = displayCount || infos.length;
 
     return (
-        <div className="bg-white rounded-xl my-4 md:m-4 p-4 ">
+        <div className="bg-white rounded-xl my-4 md:m-4 p-4 " id="info">
             <h2 className="text-center">観光情報</h2><hr />
             <ul className="flex flex-wrap justify-center p-0">
                 {infos.slice(0, count).map((info) => (

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Profile() {
     return (
-        <section className="bg-white text-center p-4 mt-4 md:m-4 md:rounded-xl">
+        <section className="bg-white text-center p-4 mt-4 md:m-4 md:rounded-xl" id="profile">
             <Image
                 src="/images/diary/Introduce/introduce.jpg"
                 alt="プロフィール写真"

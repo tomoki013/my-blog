@@ -1,11 +1,9 @@
-import styles from "@/app/components/layout/site-rule/SiteRule.module.css";
-
 export default function SiteRule() {
     return (
         <div className="md:flex bg-white text-[var(--text-color)] md:rounded-xl md:my-0 mx-4">
 
             {/* プライバシーポリシー */}
-            <div className={styles.privacy_policy}>
+            <div className="p-8">
                 <h2>プライバシーポリシー</h2><hr />
                 <h3>ともきちの旅行ブログ プライバシーポリシー</h3>
                 <p>ともきちの旅行ブログ（以下「当サイト」）では、以下の方針に基づき個人情報を取り扱います。</p>
@@ -30,7 +28,7 @@ export default function SiteRule() {
             <hr />
 
             {/* 利用規約 */}
-            <div className={styles.terms_of_service}>
+            <div className="p-8">
             <h2>利用規約</h2><hr />
                 <h3>ともきちの旅行ブログ 利用規約</h3>
                 <h3>第1条（適用）</h3>
